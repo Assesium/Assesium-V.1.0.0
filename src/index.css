@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --transition-duration: 150ms;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-gray-50;
+  }
+}
+
+/* Theme transition handling */
+.theme-transition * {
+  transition: none !important;
+}
+
+.transition-colors {
+  transition-duration: var(--transition-duration) !important;
+}
+
+.transition-transform {
+  transition-duration: var(--transition-duration) !important;
+}
+
+.transition-all {
+  transition-duration: var(--transition-duration) !important;
+}
+
+/* Dark mode styles */
+.dark option {
+  @apply bg-gray-700 text-white;
+}
+
+.dark select {
+  @apply bg-gray-700 text-white border-gray-600;
+}
+
+.dark td,
+.dark th {
+  @apply text-white;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  @apply text-gray-200;
+}
+
+.dark div[role="listbox"],
+.dark [class*="dropdown"],
+.dark .absolute.z-10 {
+  @apply bg-gray-700 text-white border-gray-600;
+}
+
+.dark [class*="dropdown"] div,
+.dark .absolute.z-10 div {
+  @apply text-white;
+}
+
+.dark [class*="dropdown"] div:hover,
+.dark .absolute.z-10 div:hover {
+  @apply bg-gray-600;
+}
+
+.dark tbody td {
+  @apply text-gray-200;
+}
+
+.dark button {
+  @apply transition-all duration-200;
+}
+
+.dark .filter-dropdown {
+  @apply bg-gray-700 text-white border-gray-600;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
